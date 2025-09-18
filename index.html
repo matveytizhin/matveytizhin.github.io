@@ -2,9 +2,73 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Мой сайт</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Классификатор отзывов — T-Банк</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Привет, мир!</h1>
+
+  <!-- Логотип в правом верхнем углу -->
+  <div class="logo-fixed">
+    <img src="images/logo.png" alt="T-Банк" class="logo">
+  </div>
+
+  <!-- Фоновые значки (горошек) -->
+  <div class="bg-decor">
+    <img src="images/tech-icon.png" class="bg-icon tech" alt="">
+    <img src="images/innovation-icon.png" class="bg-icon innovation" alt="">
+    <img src="images/data-icon.png" class="bg-icon data" alt="">
+    <img src="images/education-icon.png" class="bg-icon education" alt="">
+  </div>
+
+  <!-- Основное окно приложения -->
+  <div class="app-window">
+
+    <header>
+      <h1>Классификатор отзывов</h1>
+      <p>Нейросеть от T-Банк: определяет категорию товара по тексту</p>
+    </header>
+
+    <!-- Поле ввода по центру -->
+    <div class="input-section">
+      <textarea id="reviewInput" placeholder="Введите отзыв..."></textarea>
+      <!-- Значок AI под полем ввода -->
+      <div class="ai-icon-container">
+        <img src="images/ai-icon.png" alt="AI" class="ai-icon">
+      </div>
+    </div>
+
+    <!-- Примеры -->
+    <div class="examples">
+      <h3>Примеры:</h3>
+      <div class="example-buttons">
+        <button onclick="loadExample('Замечательный пылесос, тихий и мощный!')">Пылесос</button>
+        <button onclick="loadExample('Кроссовки жмут, но выглядят стильно')">Кроссовки</button>
+        <button onclick="loadExample('Платье село идеально, ткань приятная')">Платье</button>
+        <button onclick="loadExample('Сковорода пригорает, не рекомендую')">Сковорода</button>
+        <button onclick="loadExample('Заказ не пришел, деньги не вернули')">Нет товара</button>
+      </div>
+    </div>
+
+    <!-- Кнопка классификации -->
+    <button id="classifyBtn" onclick="classifyReview()">Классифицировать</button>
+
+    <!-- Результат -->
+    <div id="result" class="result hidden">
+      <h2>Результат:</h2>
+      <div id="resultContent"></div>
+    </div>
+
+    <!-- Три фото компании в самом низу -->
+    <div class="photo-strip">
+      <img src="images/bank-building.jpg" alt="Здание T-Банк">
+      <img src="images/t-obrazovanie.jpg" alt="T-Образование">
+      <img src="images/university-sirius.jpg" alt="Университет Сириус">
+    </div>
+
+  </div> <!-- .app-window -->
+
+  <script src="script.js"></script>
 </body>
 </html>

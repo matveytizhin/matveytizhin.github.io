@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f8f9fa;
+  color: #333;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Логотип в правом верхнем углу */
+.logo-fixed {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.logo {
+  height: 50px;
+  transition: transform 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* Фоновые значки (горошек) */
+.bg-decor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.bg-icon {
+  position: absolute;
+  opacity: 0.03;
+  width: 80px;
+  height: 80px;
+}
+
+.bg-icon.tech { top: 15%; left: 10%; }
+.bg-icon.innovation { top: 30%; right: 15%; }
+.bg-icon.data { bottom: 25%; left: 20%; }
+.bg-icon.education { bottom: 40%; right: 10%; }
+
+/* Основное окно приложения */
+.app-window {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  margin: 80px auto 40px;
+  padding: 40px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.1rem;
+  color: #718096;
+  margin-bottom: 40px;
+}
+
+/* Поле ввода по центру */
+.input-section {
+  margin: 40px 0;
+}
+
+#reviewInput {
+  width: 100%;
+  height: 140px;
+  padding: 20px;
+  font-size: 1.1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  background: #f8fafc;
+  font-family: inherit;
+  resize: none;
+  transition: border 0.3s;
+}
+
+#reviewInput:focus {
+  outline: none;
+  border-color: #4299e1;
+  background: white;
+}
+
+/* Значок AI под полем ввода */
+.ai-icon-container {
+  margin-top: 20px;
+}
+
+.ai-icon {
+  width: 60px;
+  height: 60px;
+  opacity: 0.8;
+}
+
+/* Примеры */
+.examples {
+  margin: 40px 0;
+}
+
+.examples h3 {
+  font-size: 1.2rem;
+  color: #4a5568;
+  margin-bottom: 20px;
+}
+
+.example-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.example-buttons button {
+  padding: 10px 16px;
+  background: #edf2f7;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.example-buttons button:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+/* Кнопка классификации */
+#classifyBtn {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 30px auto;
+  padding: 16px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #4299e1, #3182ce);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#classifyBtn:hover {
+  transform: scale(1.03);
+}
+
+/* Результат */
+.result {
+  padding: 25px;
+  border-radius: 16px;
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  margin: 30px auto;
+  max-width: 600px;
+  animation: fadeIn 0.5s ease;
+}
+
+.result.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.result-category {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.result-category img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.result-category h3 {
+  color: #2d3748;
+  font-size: 1.2rem;
+}
+
+/* Три фото компании в самом низу */
+.photo-strip {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 60px;
+}
+
+.photo-strip img {
+  flex: 1;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .app-window {
+    margin: 60px 20px 20px;
+    padding: 25px;
+  }
+  header h1 {
+    font-size: 2rem;
+  }
+  .photo-strip {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .photo-strip img {
+    height: 140px;
+  }
+}
